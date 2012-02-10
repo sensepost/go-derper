@@ -1,0 +1,64 @@
+(c) SensePost 2010
+
+License: BSD (See LICENSE.txt)
+
+----------------------------------
+    go-derper.rb - marco@sensepost.com
+        ----------------------------------
+
+1. Intro
+--------
+
+Quick 'n dirty tool for extracting stuff from memcached servers, as well as for basic manipulations of the cache
+including monitoring various stats, writing into the cache and deleting entries.
+
+2. Requirements
+---------------
+
+- Ruby (Tested on 1.8.6)
+- memcache-client gem (gem install memcache-client)
+  Note: we include a modified memcache.rb from memcache-client. Thus parts of this package
+  are subject to their BSD license. See memcache-client-license.txt
+- disk space and bandwidth :)
+
+3. Comman Usage Examples
+-----------------------
+
+Extract contents of a cache (defaults to 10 keys per slab)
+./go-derper.rb -l -s <hostname>
+
+Extract contents of a cache, using 100 keys per slab
+./go-derper.rb -l -K 100 -s <hostname>
+
+Extract contents of a cache, using 100 keys per slab, print out values matching regexes found regexs.txt
+./go-derper.rb -l -K 100 -s <hostname> -R regexs.txt
+
+Write back into the cache, the value stored at output/run5-c4ecee795335e7ef662e661974699448
+./go-derper.rb -w output/run5-c4ecee795335e7ef662e661974699448
+When writing values into the cache, local paths needs to be resolved. Run go-derper from inside it's
+own root.
+
+Delete the value stored at output/run5-c4ecee795335e7ef662e661974699448
+./go-derper.rb -d output/run5-c4ecee795335e7ef662e661974699448
+When deleting values from the cache, local paths needs to be resolved. Run go-derper from inside it's
+own root.
+
+Pull stats from one cache:
+./go-derper.rb -s <hostname> -S
+
+Fingerprint multiple caches:
+./go-derper.rb -f <host1>,<host2>,...,<hostn>
+
+Fingerprint multiple caches stored in a file (one per line):
+./go-derper.rb -F <file>
+
+Monitor a single cache to watch changes:
+./go-derper.rb -m -s <hostname>
+
+Pull a single key:
+./go-derper.rb -k <keyid> -s <hostname>
+
+4. More
+-------
+
+www.sensepost.com
