@@ -45,6 +45,7 @@ Monitor a single cache to watch changes:
 
 Pull a single key:
 > ./go-derper.rb -k < keyid > -s < hostname >
+
 #6. Requirements
 - Ruby (Tested on 1.8.6)
 - memcache-client gem (gem install memcache-client)
@@ -53,4 +54,4 @@ are subject to their BSD license. See memcache-client-license.txt
 - disk space and bandwidth :)
 
 #7. Additional Resources 
-Blog, BlackHat Write-up: go-derper and mining memcaches - http://www.sensepost.com/blog/4873.html
+Blog, BlackHat Write-up: go-derper and mining memcaches - https://www.sensepost.com/blog/2010/blackhat-write-up-go-derper-and-mining-memcaches/
